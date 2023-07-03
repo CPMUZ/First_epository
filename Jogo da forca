@@ -1,0 +1,23 @@
+palavra= input('Digite a palavra correta: ' )
+n= 1
+e= 1
+lista=[]
+tentativa= input('Digite uma letra: ' )
+b= len(palavra)
+while n<b:
+    if tentativa in palavra:
+        tentativa= input('Digite uma letra: ' )
+        print('Letra correta')
+        n= n+1
+    else:
+        print('Letra errada')
+        tentativa= input('Digite uma letra: ' )
+        e= e+1
+        lista.append(e)
+        print(lista)
+        num= len(lista)
+        if num>6:
+            print('fim de jogo')
+            break
+print()
+print('Obrigado')
