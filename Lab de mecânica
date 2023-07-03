@@ -1,0 +1,33 @@
+import numpy as np
+import matplotlib.pyplot as plt
+lista=[]
+lista1=[]
+print('Bem vindo ao projeto de estatística')
+numero= int(input('Digite quantos experimentos deseja realizar: ' ))
+for i in range(numero):
+    exp= float(input('Digite os dados: ' ))
+    lista.append(exp)
+numero= numero+1
+for i in range(numero):
+    numero= numero-1
+    lista1.append(numero)
+print('A média dos dados é {}'.format(np.mean(lista)))
+print('O desvio padrão é {}'.format(np.std(lista)))
+desvio= np.std(lista)
+media= np.mean(lista)
+print(lista)
+lista1.pop(-1)
+print(lista1)
+#PLOTAGEM DE GRÁFICO
+plt.style.use('dark_background')
+x= lista
+y= lista1
+plt.scatter(x, y, label= (('Desvio padrão', desvio), ('Média', media)))
+coef = np.polyfit(x, y, 1)
+poly1d_fn = np.poly1d(coef)
+plt.plot(x, poly1d_fn(x), color='r', label= 'Linha de dispersão')
+plt.legend()
+plt.title('Gráfico inicial')
+plt.xlabel('Eixo x')
+plt.ylabel('Eixo y')
+plt.show()
