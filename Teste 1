@@ -1,0 +1,10 @@
+vendas= [('Iphone', 'preto', '64', 200, 3500), ('Samsung', 'branco', '128', 250, 2500), ('Iphone', 'vermelho', '64', 200, 4000)]
+#parte extra 
+venda= []
+faturamento= 0
+#a= int(input('Qual item deseja achar ? ' ))
+for fat in vendas:
+    modelo, cor, capacidade, valor, unidade= fat
+    if modelo=='Iphone' and cor=='vermelho':
+        faturamento= faturamento + unidade*valor
+        print(faturamento)
