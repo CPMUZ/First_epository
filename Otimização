@@ -1,0 +1,13 @@
+import sympy as sp
+x= sp.Symbol('x')
+função=input('Digite a função que deseja otimizar: ' )
+f= sp.diff(função, x)
+print('A primeira derivada é {}'.format(f))
+otimizacao= sp.solve(f, x)
+print('O número que vai resolver é {}'.format(otimizacao))
+sf= sp.diff(f, x)
+print('A segunda derivada é {}'.format(sf))
+if sf>0:
+    print('Esse é o ponto de máximo da função')
+elif sf<0:
+    print('Esse é o ponto de mínimo da função')
