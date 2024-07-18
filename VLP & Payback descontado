@@ -1,0 +1,42 @@
+#bibliotecas 
+import numpy as np
+#Investimentos iniciais 
+investimento= float(input("Digite o investimento inicial: "))
+#Tempo de análise 
+n= int(input("Digite o tempo em anos que vamos analisar: "))
+#Fluxo de caixa esperado 
+fluxo= [] #armazenar aqui os fluxos de caixa que serão extraidos abaixo
+i= 0
+for i in range(n):
+    entrada= float(input("Digite por favor, as entradas ao longo do tempo: "))
+    fluxo.append(entrada)
+#TMA 
+tma= float(input("Por favor, digite a taxa mínima de atratividade do investimento: "))
+tma= tma/100
+#VPL 
+o= 1
+vpl= []
+vpl1= vpl #pareando para utilizar no payback
+for i in range(len(fluxo)):
+    b= fluxo[i]/(1+tma)**o
+    o= o+1
+    vpl.append(b)
+print(vpl)
+vpl= sum(vpl) - investimento
+print(np.trunc(vpl)) 
+if vpl>0:
+    print("Investimento indicado")
+    pergunta= str(input("Você deseja utilizar a função payback ? "))#PAYBACK 
+    if pergunta == 'sim': 
+        t= 0
+        retorno= 0
+        while investimento >retorno:
+             retorno= vpl1[t]+investimento
+             t= t+1
+        print(f"O tempo necessário para reaver o investimento é de {t} anos.")
+        print("Obrigado por utilizar o nosso código")
+    else:
+        print("Obrigado por utilizar o nosso código")
+else:
+    print("Investmento não indicado ")
+    print("Obrigado por utilizar o nosso código")
